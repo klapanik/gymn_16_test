@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+.primary-button {
+    @apply bg-[#ffec96] text-black py-2 px-3 rounded-2xl font-medium cursor-pointer transition-colors duration-500 hover:bg-black hover:text-[#ffec96]
+}
