@@ -22,10 +22,10 @@ export function Dilemma({ dilemma, answers, showHandler, type }: Props) {
             className={`bg-[#252525] text-white p-2 rounded-2xl text-center flex ${type === 'correlativeTop' ? 'flex-col' : ''} gap-6`}>
 
             <div className={`${type === 'correlativeSide' ? 'w-[50%] py-2' : 'pt-5'}`}>
-                {dilemma.dilemma}
+                {dilemma.img ? <img src={dilemma.img} alt={dilemma.dilemma} /> : dilemma.dilemma}
             </div>
 
-            <div className="py-3 px-2">
+            <div className={`py-3 px-2 ${type === 'correlativeSide' ? 'w-[40%]' : ''}`}>
                 {answers.map(answer => answer.dilemmaId == dilemma.id ? <Answer answer={answer} showHandler={showHandler} /> : '')}
             </div>
         </div>
