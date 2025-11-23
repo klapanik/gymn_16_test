@@ -3,4 +3,5 @@ export type Answer = {
     isCorrect: boolean,
     id: number,
     dilemmaId?: number,
+    correctDilemmaId?: number | number[],
 }

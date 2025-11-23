@@ -90,7 +90,7 @@ export function QuestionsPage() {
 
         currentAnswer.dilemmaId = +correctId;
 
-        if (currentAnswer.id == correctId) {
+        if (currentAnswer.correctDilemmaId == correctId) {
             currentAnswer.isCorrect = true;
         } else {
             currentAnswer.isCorrect = false;
@@ -115,6 +115,7 @@ export function QuestionsPage() {
             break;
 
         case 'correlativeSide':
+        case 'correlativeTop':
             if (!question.dilemmas) {
                 nexAnswerHandler();
                 break;
