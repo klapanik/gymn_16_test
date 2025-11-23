@@ -6,7 +6,7 @@ export function MainPage() {
     const goToTest = () => { navigate('./test') }
 
     return (
-        <section className="bg-[url('../../public/images/background/main_bg.jpg')] 
+        <section className="bg-[url('/images/background/main_bg.jpg')] 
             bg-center bg-no-repeat bg-cover h-screen text-white p-10">
 
             <div className="my-auto flex flex-col items-center max-w-150 mx-auto">

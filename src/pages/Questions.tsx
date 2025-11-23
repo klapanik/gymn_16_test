@@ -89,7 +89,7 @@ export function QuestionsPage() {
     console.log(points);
 
     return (
-        <section className={`bg-[url('../../public/images/background/bg1.jpg')] bg-center bg-no-repeat bg-cover
+        <section className={`bg-[url('/images/background/bg1.jpg')] bg-center bg-no-repeat bg-cover
             h-screen p-10`}>
             <div className="flex flex-col gap-10">
                 <p className="font-semibold text-xl">{question.questionText}</p>
