@@ -68,8 +68,12 @@ export function QuestionsPage() {
             answer.isCorrect
         ).length;
 
+        const amountOfSelectedIncorrectAnswers = selectedAnswers.filter(answer =>
+            !answer.isCorrect
+        ).length;
+
         if (amountOfSelectedCorrectAnswers > 0) {
-            setPoints(prev => prev += amountOfSelectedCorrectAnswers);
+            setPoints(prev => prev += (amountOfSelectedCorrectAnswers - amountOfSelectedIncorrectAnswers));
         }
 
         setSelectedAnswers([]);
@@ -130,8 +134,6 @@ export function QuestionsPage() {
                 type={question.questionType} />
             break;
     }
-
-    // console.log(points);
 
     return (
         <section className={`bg-[url('/images/background/bg1.jpg')] bg-center bg-no-repeat bg-cover

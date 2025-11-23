@@ -1,9 +1,24 @@
 import { useNavigate } from "react-router-dom"
+import { localStorageService } from "../services/localStorage";
 
 export function MainPage() {
     const navigate = useNavigate();
 
-    const goToTest = () => { navigate('./test') }
+    const goToTest = () => { navigate('/test') };
+
+    const points = localStorageService.get('points');
+
+    let comment = '';
+
+    if (points == 0 || points < 10) {
+        comment = ''
+    } else if (points > 10 && points < 20) {
+        comment = 'Вы показали себя, но в некоторых вопросах сделали ошибки. Пройдите тест заново и исправьте их'
+    } else if (points > 20 && points < 30) {
+        comment = 'Поздравляем!'
+    } else if (points > 30) {
+        comment = 'Это лучший результат!!!'
+    }
 
     return (
         <section className="bg-[url('/images/background/main_bg.jpg')] 
@@ -31,12 +46,31 @@ export function MainPage() {
                         </div>
                     </ul>
 
-                    <button
-                        onClick={() => goToTest()}
-                        type="button"
-                        className="block mx-auto primary-button">
-                        Перейти к вопросам
-                    </button>
+                    {points
+                        ? <div className="mx-auto my-5 text-centre">
+                            <p>На прошлом тесте вы набрали {points} балла. {comment}</p>
+                        </div>
+                        : ''
+                    }
+
+                    <div className="flex mx-auto items-center justify-center gap-4">
+                        <button
+                            onClick={() => goToTest()}
+                            type="button"
+                            className="primary-button">
+                            {points ? 'Пройти тест ещё раз' : 'Перейти к вопросам'}
+                        </button>
+
+                        {points
+                            ? <button
+                                onClick={() => localStorageService.remove('points')}
+                                type="button"
+                                className="primary-button">
+                                Cбросить результат
+                            </button>
+                            : ''
+                        }
+                    </div>
                 </main>
             </div>
         </section>
