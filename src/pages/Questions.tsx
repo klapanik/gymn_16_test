@@ -3,6 +3,8 @@ import { questions } from "../entities/lib/constants";
 import { ChooseAnswers } from "../features/ChooseAnswers";
 import { useNavigate } from "react-router-dom";
 import type { Answer } from "../entities/answer";
+import { CorrelationAnswers } from "../features/CorrelationAnswers/CorrelationAnswers";
+import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 
 export function QuestionsPage() {
     const [questionNumber, setQuestionNumber] = useState(0);
@@ -34,7 +36,7 @@ export function QuestionsPage() {
         });
     };
 
-    const showHandler = (isCorrect: boolean, answerId: number) => {
+    const showHandler = (isCorrect: boolean, answerId: number, background: string = 'white') => {
         const isAlreadySelected = selectedAnswers.some(item => item.id === answerId);
         let styles = ''
 
@@ -44,7 +46,7 @@ export function QuestionsPage() {
             } else {
                 styles += 'bg-[#ffcdd2] border-[#f44336]'
             }
-        } else {
+        } else if (background === 'white') {
             styles += 'bg-white border-white'
         }
 
@@ -53,22 +55,6 @@ export function QuestionsPage() {
         }
 
         return styles;
-    }
-
-    const question = questions[questionNumber];
-
-    let answersComponent = <ChooseAnswers
-        answers={question.answers}
-        handleAnswerClick={handleAnswerClick}
-        showHandler={showHandler} />;
-
-    switch (question.questionType) {
-        case 'choose':
-            answersComponent = <ChooseAnswers
-                answers={question.answers}
-                handleAnswerClick={handleAnswerClick}
-                showHandler={showHandler} />
-            break;
     }
 
     const nexAnswerHandler = () => {
@@ -86,14 +72,73 @@ export function QuestionsPage() {
         setIsAnswersShown(false);
     }
 
+    const handleDragEnd = (event: DragEndEvent) => {
+        if (isAnswersShown) {
+            return;
+        }
+
+        const { active, over } = event;
+
+        if (!over) return;
+
+        const answerId = active.id;
+        const correctId = over.id;
+
+        const currentAnswer = question.answers.filter(answer =>
+            answer.id === answerId
+        )[0];
+
+        currentAnswer.dilemmaId = +correctId;
+
+        if (currentAnswer.id == correctId) {
+            currentAnswer.isCorrect = true;
+        } else {
+            currentAnswer.isCorrect = false;
+        }
+
+        setSelectedAnswers(prev => [...prev, currentAnswer]);
+    }
+
+    const question = questions[questionNumber];
+
+    let answersComponent = <ChooseAnswers
+        answers={question.answers}
+        handleAnswerClick={handleAnswerClick}
+        showHandler={showHandler} />;
+
+    switch (question.questionType) {
+        case 'choose':
+            answersComponent = <ChooseAnswers
+                answers={question.answers}
+                handleAnswerClick={handleAnswerClick}
+                showHandler={showHandler} />
+            break;
+
+        case 'correlativeSide':
+            if (!question.dilemmas) {
+                nexAnswerHandler();
+                break;
+            }
+
+            answersComponent = <CorrelationAnswers
+                answers={question.answers}
+                dilemmas={question.dilemmas}
+                showHandler={showHandler}
+                type={question.questionType} />
+            break;
+    }
+
     console.log(points);
 
     return (
         <section className={`bg-[url('/images/background/bg1.jpg')] bg-center bg-no-repeat bg-cover
-            h-screen p-10`}>
+            min-h-screen p-10`}>
+
             <div className="flex flex-col gap-10">
                 <p className="font-semibold text-xl">{question.questionText}</p>
-                {answersComponent}
+                <DndContext onDragEnd={handleDragEnd}>
+                    {answersComponent}
+                </DndContext>
 
                 <div>
                     <button onClick={() => setIsAnswersShown(() => selectedAnswers.length ? true : false)} className="primary-button mr-10 border-2 border-black">Показать правильные ответы</button>
