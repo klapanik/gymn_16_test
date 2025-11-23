@@ -5,20 +5,24 @@ import { useNavigate } from "react-router-dom";
 import type { Answer } from "../entities/answer";
 import { CorrelationAnswers } from "../features/CorrelationAnswers/CorrelationAnswers";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
+import { localStorageService } from "../services/localStorage";
 
 export function QuestionsPage() {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [points, setPoints] = useState(0);
+    const [selectedAnswers, setSelectedAnswers] = useState<Answer[]>([]);
+    const [isAnswersShown, setIsAnswersShown] = useState(false);
 
     const navigate = useNavigate();
 
-    if (questionNumber > 10) {
-        navigate('./home');
-    }
+    const question = questions[questionNumber];
 
-    // Choose answers
-    const [selectedAnswers, setSelectedAnswers] = useState<Answer[]>([]);
-    const [isAnswersShown, setIsAnswersShown] = useState(false);
+    if (questionNumber > 9) {
+        localStorageService.set('points', points);
+
+        navigate('../home');
+        return
+    }
 
     const handleAnswerClick = (answer: Answer) => {
         if (isAnswersShown) {
@@ -82,15 +86,15 @@ export function QuestionsPage() {
         if (!over) return;
 
         const answerId = active.id;
-        const correctId = over.id;
+        const dilemmaId = over.id;
 
         const currentAnswer = question.answers.filter(answer =>
             answer.id === answerId
         )[0];
 
-        currentAnswer.dilemmaId = +correctId;
+        currentAnswer.dilemmaId = +dilemmaId;
 
-        if (currentAnswer.correctDilemmaId == correctId) {
+        if (currentAnswer.correctDilemmaId == dilemmaId) {
             currentAnswer.isCorrect = true;
         } else {
             currentAnswer.isCorrect = false;
@@ -98,8 +102,6 @@ export function QuestionsPage() {
 
         setSelectedAnswers(prev => [...prev, currentAnswer]);
     }
-
-    const question = questions[questionNumber];
 
     let answersComponent = <ChooseAnswers
         answers={question.answers}
@@ -129,7 +131,7 @@ export function QuestionsPage() {
             break;
     }
 
-    console.log(points);
+    // console.log(points);
 
     return (
         <section className={`bg-[url('/images/background/bg1.jpg')] bg-center bg-no-repeat bg-cover
