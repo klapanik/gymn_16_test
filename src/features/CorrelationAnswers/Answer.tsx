@@ -24,7 +24,7 @@ export function Answer({ answer, showHandler }: Props) {
             {...attributes}
             key={answer.id}
             style={style}
-            className={`bg-black w-full cursor-pointer border-2 p-2 mb-2 rounded-2xl mx-auto ${showHandler(answer.isCorrect, answer.id, 'black')}`}>
+            className={`text-black w-full cursor-pointer p-2 mb-2 rounded-2xl mx-auto ${showHandler(answer.isCorrect, answer.id)}`}>
             {answer.answerText}
         </div>
     )

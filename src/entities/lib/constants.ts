@@ -2,7 +2,7 @@ import type { Question } from "../question";
 
 export const questions: Question[] = [
     {
-        questionText: 'Какие из перечисленных принципов одновременно закреплены в Конституции Республики Беларусь и отражают нравственные ценности общества, но при этом могут вступать в противоречие друг с другом в реальной практике?',
+        questionText: '1. Какие из перечисленных принципов одновременно закреплены в Конституции Республики Беларусь и отражают нравственные ценности общества, но при этом могут вступать в противоречие друг с другом в реальной практике? (выберете два варианта ответа)',
         answers: [
             {
                 answerText: 'A) Свобода слова',
@@ -25,7 +25,7 @@ export const questions: Question[] = [
                 id: 4,
             },
             {
-                answerText: 'Д) Право на тайну личной жизниа',
+                answerText: 'Д) Право на тайну личной жизни',
                 isCorrect: false,
                 id: 5,
             },
@@ -34,61 +34,72 @@ export const questions: Question[] = [
         questionType: 'choose',
     },
     {
-        questionText: 'Соотнесите статью Конституции и правовую дилемму:',
+        questionText: '2. Соотнесите статьи Конституции Республики Беларусь и примеры ситуаций:',
         answers: [
             {
-                answerText: 'Ст. 33 → свобода мнений',
+                answerText: 'Ст. 3 - народ является источником власти',
                 isCorrect: false,
                 id: 1,
                 dilemmaId: 1,
                 correctDilemmaId: 4,
             },
             {
-                answerText: 'Ст. 34 → право на получение информации',
+                answerText: 'Ст. 4 - демократия и многообразие мнений',
                 isCorrect: false,
                 id: 2,
                 dilemmaId: 1,
-                correctDilemmaId: 3
+                correctDilemmaId: 5,
             },
             {
-                answerText: 'Ст. 35 → свобода собраний',
+                answerText: 'Ст. 33 - свобода мнений и выражения',
                 isCorrect: false,
                 id: 3,
-                dilemmaId: 1,
-                correctDilemmaId: 2
+                dilemmaId: 2,
+                correctDilemmaId: 3,
             },
             {
-                answerText: ' Ст. 59 → обязанность государства защищать права',
+                answerText: 'Ст. 34 - право на получение информации',
                 isCorrect: false,
                 id: 4,
-                dilemmaId: 1,
+                dilemmaId: 2,
                 correctDilemmaId: 1,
-            }
+            },
+            {
+                answerText: 'Ст. 59 - обязанность государства защищать права граждан',
+                isCorrect: false,
+                id: 5,
+                dilemmaId: 1,
+                correctDilemmaId: 2,
+            },
         ],
 
         dilemmas: [
             {
-                dilemma: 'Гражданин требует доступа к закрытой информации о деятельности органов власти',
+                dilemma: 'Гражданин РБ обращается в ЖЭС, чтобы узнать, как расходуются средства на ремонт дома',
                 id: 1
             },
             {
-                dilemma: 'Организаторы массового мероприятия не согласовали мероприятие с местными властями.',
+                dilemma: 'Гражданин РБ обращается в милицию, если у него украли телефон',
                 id: 2
             },
             {
-                dilemma: 'Журналист публикует критическую статью, затрагивающую репутацию чиновника.',
+                dilemma: 'Гражданин РБ ведет блог в соцсетях, где делится своими мыслями о жизни, культуре',
                 id: 3
             },
             {
-                dilemma: 'Суд обязан обеспечить защиту прав гражданина, даже если закон несовершенен',
+                dilemma: 'Гражданин РБ участвует в выборах депутата, Президента',
                 id: 4
+            },
+            {
+                dilemma: 'Гражданин РБ вступает в общественное объединение, политическую партию',
+                id: 5
             },
         ],
 
         questionType: 'correlativeSide',
     },
     {
-        questionText: 'Разделите примеры на «уголовную», «административную», «гражданско‑правовую» и «дисциплинарную» ответственность:',
+        questionText: '3. Классифицируйте примеры по видам ответственности: «уголовная», «административная», «гражданско‑правовая» и «дисциплинарная»:',
         answers: [
             {
                 answerText: 'Нарушение авторских прав при публикации статьи',
@@ -115,33 +126,33 @@ export const questions: Question[] = [
                 answerText: 'Мошенничество',
                 isCorrect: false,
                 id: 4,
-                dilemmaId: 1,
+                dilemmaId: 2,
                 correctDilemmaId: 1,
             },
             {
                 answerText: 'Неисполнение договора аренды',
                 isCorrect: false,
                 id: 5,
-                dilemmaId: 1,
+                dilemmaId: 2,
                 correctDilemmaId: 3,
             }
         ],
 
         dilemmas: [
             {
-                dilemma: 'уголовная',
+                dilemma: 'Уголовная',
                 id: 1,
             },
             {
-                dilemma: 'административная',
+                dilemma: 'Административная',
                 id: 2,
             },
             {
-                dilemma: 'гражданско-правовая',
+                dilemma: 'Гражданско-правовая',
                 id: 3,
             },
             {
-                dilemma: 'дисциплинарная',
+                dilemma: 'Дисциплинарная',
                 id: 4,
             }
         ],
@@ -149,7 +160,7 @@ export const questions: Question[] = [
         questionType: 'correlativeTop',
     },
     {
-        questionText: 'Расположите этапы в правильной последовательности:',
+        questionText: '4. Расположите этапы процесса рассмотрения дела в суде в правильной последовательности:',
         answers: [
             {
                 answerText: 'Возможность апелляции',
@@ -225,7 +236,7 @@ export const questions: Question[] = [
         questionType: 'correlativeSide',
     },
     {
-        questionText: 'Какой орган Республики Беларусь имеет право официально толковать Конституцию?',
+        questionText: '5. Какой орган Республики Беларусь имеет право официально толковать Конституцию Республики Беларусь?',
         answers: [
             {
                 answerText: 'A) Верховный Суд',
@@ -252,7 +263,8 @@ export const questions: Question[] = [
         questionType: 'choose',
     },
     {
-        questionText: 'Какие нормы нарушаются в данной ситуации независимо от юридической квалификации?',
+        questionText: '6. На иллюстрации изображён подросток, который снимает на видео драку и выкладывает её в интернет. Определите, какие нормы нарушаются в данной ситуации, независимо от юридической квалификации?',
+        img: '/images/question_six.jpg',
         answers: [
             {
                 answerText: 'A) Нарушение нравственных норм (популяризация насилия)',
@@ -274,34 +286,34 @@ export const questions: Question[] = [
         questionType: 'choose',
     },
     {
-        questionText: 'Соотнесите правовые категории и их определения:',
+        questionText: '7. Соотнесите правовые категории и их определения:',
         answers: [
             {
                 answerText: 'Противоречие норм',
                 isCorrect: false,
                 id: 1,
-                dilemmaId: 1,
+                dilemmaId: 2,
                 correctDilemmaId: 1,
             },
             {
                 answerText: 'Отсутствие регулирования',
                 isCorrect: false,
                 id: 2,
-                dilemmaId: 4,
+                dilemmaId: 1,
                 correctDilemmaId: 2,
             },
             {
                 answerText: 'Знание и оценка права',
                 isCorrect: false,
                 id: 3,
-                dilemmaId: 2,
+                dilemmaId: 1,
                 correctDilemmaId: 3,
             },
             {
                 answerText: 'Уровень развития правовых знаний и поведения',
                 isCorrect: false,
                 id: 4,
-                dilemmaId: 3,
+                dilemmaId: 2,
                 correctDilemmaId: 4,
             }
         ],
@@ -328,13 +340,13 @@ export const questions: Question[] = [
         questionType: 'correlativeSide',
     },
     {
-        questionText: 'Разделите примеры на «права», «обязанности» и «гарантии»:',
+        questionText: '8. Разделите примеры на «права», «обязанности» и «гарантии» учащихся:',
         answers: [
             {
                 answerText: 'Получать бесплатное образование',
                 isCorrect: false,
                 id: 1,
-                dilemmaId: 1,
+                dilemmaId: 2,
                 correctDilemmaId: 1,
             },
             {
@@ -362,7 +374,7 @@ export const questions: Question[] = [
                 answerText: 'Бережно относиться к имуществу школы',
                 isCorrect: false,
                 id: 5,
-                dilemmaId: 2,
+                dilemmaId: 1,
                 correctDilemmaId: 2,
             }
         ],
@@ -383,44 +395,45 @@ export const questions: Question[] = [
         ],
 
         questionType: 'correlativeTop',
+        cols: '3',
     },
     {
-        questionText: 'Расположите этапы развития правовой системы в логической последовательности:',
+        questionText: '9. Расположите этапы развития правовой системы в логической последовательности:',
         answers: [
             {
-                answerText: 'Возникновение обычного права',
+                answerText: 'Формирование писаных законов ',
                 isCorrect: false,
                 id: 1,
-                dilemmaId: 1,
-                correctDilemmaId: 1,
-            },
-            {
-                answerText: 'Формирование писаных законов',
-                isCorrect: false,
-                id: 2,
-                dilemmaId: 1,
-                correctDilemmaId: 2,
-            },
-            {
-                answerText: 'Создание судебной практики',
-                isCorrect: false,
-                id: 3,
-                dilemmaId: 1,
-                correctDilemmaId: 3,
-            },
-            {
-                answerText: 'Развитие конституционного права',
-                isCorrect: false,
-                id: 4,
                 dilemmaId: 1,
                 correctDilemmaId: 4,
             },
             {
+                answerText: 'Создание судебной практики ',
+                isCorrect: false,
+                id: 2,
+                dilemmaId: 2,
+                correctDilemmaId: 1,
+            },
+            {
                 answerText: 'Интеграция международных норм',
                 isCorrect: false,
-                id: 5,
+                id: 3,
+                dilemmaId: 1,
+                correctDilemmaId: 2,
+            },
+            {
+                answerText: 'Возникновение права, на основе традиций',
+                isCorrect: false,
+                id: 4,
                 dilemmaId: 1,
                 correctDilemmaId: 5,
+            },
+            {
+                answerText: 'Развитие конституционного права',
+                isCorrect: false,
+                id: 5,
+                dilemmaId: 2,
+                correctDilemmaId: 3,
             }
         ],
 
@@ -450,7 +463,7 @@ export const questions: Question[] = [
         questionType: 'correlativeSide',
     },
     {
-        questionText: 'Расположите этапы развития правовой системы в логической последовательности:',
+        questionText: '10. Сопоставьте эмблемы государственных структур с их наименованием:',
         answers: [
             {
                 answerText: 'Департамент охраны МВД',
@@ -463,7 +476,7 @@ export const questions: Question[] = [
                 answerText: 'Следственный комитет',
                 isCorrect: false,
                 id: 2,
-                dilemmaId: 1,
+                dilemmaId: 2,
                 correctDilemmaId: 1,
             },
             {
@@ -491,7 +504,7 @@ export const questions: Question[] = [
                 answerText: 'Министерство юстиции РБ',
                 isCorrect: false,
                 id: 6,
-                dilemmaId: 3,
+                dilemmaId: 1,
                 correctDilemmaId: 6,
             }
         ],
@@ -514,7 +527,7 @@ export const questions: Question[] = [
             },
             {
                 dilemma: '',
-                img: '/images/img4.jpg',
+                img: '/images/img4.png',
                 id: 4,
             },
             {
@@ -529,6 +542,7 @@ export const questions: Question[] = [
             }
         ],
 
+        cols: '3',
         questionType: 'correlativeTop',
     },
 ]

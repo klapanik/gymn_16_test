@@ -40,22 +40,28 @@ export function QuestionsPage() {
         });
     };
 
-    const showHandler = (isCorrect: boolean, answerId: number, background: string = 'white') => {
+    const showHandler = (isCorrect: boolean, answerId: number) => {
         const isAlreadySelected = selectedAnswers.some(item => item.id === answerId);
         let styles = ''
 
         if (isAnswersShown && isAlreadySelected) {
             if (isCorrect) {
-                styles += 'bg-[#c8e6c9] border-[#4caf50]'
+                styles += 'border-2 bg-[#c8e6c9] border-[#4caf50]'
             } else {
-                styles += 'bg-[#ffcdd2] border-[#f44336]'
+                styles += 'border-2 bg-[#ffcdd2] border-[#f44336]'
             }
-        } else if (background === 'white') {
-            styles += 'bg-white border-white'
+        } else {
+            styles += 'bg-white '
+
+            if (question.questionType === 'choose' && !isAlreadySelected) {
+                styles += 'border-white'
+            } else {
+                styles += 'border border-black'
+            }
         }
 
         if (isAlreadySelected && !isAnswersShown) {
-            styles += 'border-black '
+            styles += ' border-2 border-black '
         }
 
         return styles;
@@ -131,7 +137,8 @@ export function QuestionsPage() {
                 answers={question.answers}
                 dilemmas={question.dilemmas}
                 showHandler={showHandler}
-                type={question.questionType} />
+                type={question.questionType}
+                cols={question.cols ? question.cols : '4'} />
             break;
     }
 
@@ -141,6 +148,10 @@ export function QuestionsPage() {
 
             <div className="flex flex-col gap-10">
                 <p className="font-semibold text-xl">{question.questionText}</p>
+                {question.img
+                    ? <img className="w-100 mx-auto" src={question.img} alt='Подросток' />
+                    : ''}
+
                 <DndContext onDragEnd={handleDragEnd}>
                     {answersComponent}
                 </DndContext>

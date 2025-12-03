@@ -5,5 +5,7 @@ export type Question = {
     questionText: string,
     answers: Answer[],
     questionType: 'choose' | 'correlationSide' | 'correlationTop' | 'sorting' | string,
-    dilemmas?: Dilemma[]
+    dilemmas?: Dilemma[],
+    img?: string,
+    cols?: '3' | '4',  
 }

@@ -31,19 +31,9 @@ export function MainPage() {
                 </header>
 
                 <main className="w-full">
-                    <ul className="text-lg font-normal mb-11">
-                        <li><p>Государственное учереждение образования "Гимназия номер 16"</p></li>
+                    <ul className="text-lg font-normal mb-20">
+                        <li><p>Государственное учереждение образования «Гимназия № 16 г.Минска»</p></li>
                         <li><p>Центральный район</p></li>
-                        <div className="text-end mt-2">
-                            <li><p><i>Лапаник Константин Денисович</i></p></li>
-                            <li><p>Номер телефона: <a
-                                href="tel:+375336768259"
-                                className="font-light transition-colors duration-300 
-                                hover:text-blue-500">
-                                <i>+375-(33)-676-82-59</i>
-                            </a></p></li>
-                            <li><p>2025 год</p></li>
-                        </div>
                     </ul>
 
                     {points
@@ -57,7 +47,7 @@ export function MainPage() {
                         <button
                             onClick={() => goToTest()}
                             type="button"
-                            className="primary-button">
+                            className="primary-button w-50">
                             {points ? 'Пройти тест ещё раз' : 'Перейти к вопросам'}
                         </button>
 
@@ -73,6 +63,21 @@ export function MainPage() {
                     </div>
                 </main>
             </div>
+
+            <footer className="w-full">
+                <ul className="mt-10 flex justify-end w-full">
+                    <div className="text-end mt-2">
+                        <li><p><i>Лапаник Константин Денисович</i></p></li>
+                        <li><p>Номер телефона: <a
+                            href="tel:+375336768259"
+                            className="font-light transition-colors duration-300 
+                                hover:text-blue-500">
+                            <i>+375-(33)-676-82-59</i>
+                        </a></p></li>
+                        <li><p>2025 год</p></li>
+                    </div>
+                </ul>
+            </footer>
         </section>
     )
 }

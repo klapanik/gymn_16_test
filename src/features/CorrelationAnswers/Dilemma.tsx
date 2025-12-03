@@ -19,10 +19,10 @@ export function Dilemma({ dilemma, answers, showHandler, type }: Props) {
         <div
             ref={setNodeRef}
             key={dilemma.id}
-            className={`bg-[#252525] text-white p-2 rounded-2xl text-center flex ${type === 'correlativeTop' ? 'flex-col' : ''} gap-6`}>
+            className={`bg-white text-white p-2 rounded-2xl text-center flex ${type === 'correlativeTop' ? 'flex-col' : ''} gap-6 shadow-2xl`}>
 
             <div className={`${type === 'correlativeSide' ? 'w-[50%] py-2' : 'pt-5'}`}>
-                {dilemma.img ? <img src={dilemma.img} alt={dilemma.dilemma} /> : dilemma.dilemma}
+                {dilemma.img ? <img src={dilemma.img} alt={dilemma.dilemma} className="h-72 mx-auto" /> : <p className="text-black">{dilemma.dilemma}</p>}
             </div>
 
             <div className={`py-3 px-2 ${type === 'correlativeSide' ? 'w-[40%]' : ''}`}>
