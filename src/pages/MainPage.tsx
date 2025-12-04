@@ -26,12 +26,12 @@ export function MainPage() {
 
             <div className="my-auto flex flex-col items-center max-w-150 mx-auto">
                 <header className="w-full mb-6">
-                    <h1 className="text-4xl font-semibold text-center">Познавательный тест</h1>
-                    <h2 className="text-2xl text-center">«Правовая культура и нормы нравственного поведения»</h2>
+                    <h1 className="text-2xl font-semibold text-center md:text-4xl sm:text-3xl">Познавательный тест</h1>
+                    <h2 className="text-lg text-center md:text-2xl sm:text-xl">«Правовая культура и нормы нравственного поведения»</h2>
                 </header>
 
                 <main className="w-full">
-                    <ul className="text-lg font-normal mb-20">
+                    <ul className="text-md font-normal mb-20 sm:text-lg">
                         <li><p>Государственное учереждение образования «Гимназия № 16 г.Минска»</p></li>
                         <li><p>Центральный район</p></li>
                     </ul>

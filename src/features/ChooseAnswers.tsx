@@ -8,7 +8,7 @@ type Props = {
 
 export function ChooseAnswers({ answers, handleAnswerClick, showHandler }: Props) {
     return (
-        <div className="grid grid-rows-2 grid-cols-3 gap-4 px-10 mb-5">
+        <div className="grid sm:grid-rows-3 sm:grid-cols-2 md:grid-rows-2 md:grid-cols-3 gap-4 px-10 mb-5">
             {answers.map(answer => (
                 <button
                     key={answer.id}

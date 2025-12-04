@@ -147,7 +147,7 @@ export function QuestionsPage() {
             min-h-screen p-10`}>
 
             <div className="flex flex-col gap-10">
-                <p className="font-semibold text-xl">{question.questionText}</p>
+                <p className="text-md font-semibold sm:text-lg md:text-xl">{question.questionText}</p>
                 {question.img
                     ? <img className="w-100 mx-auto" src={question.img} alt='Подросток' />
                     : ''}
@@ -156,7 +156,7 @@ export function QuestionsPage() {
                     {answersComponent}
                 </DndContext>
 
-                <div>
+                <div className="flex gap-5 flex-wrap">
                     <button onClick={() => setIsAnswersShown(() => selectedAnswers.length ? true : false)} className="primary-button mr-10 border-2 border-black">Показать правильные ответы</button>
                     <button onClick={() => nexAnswerHandler()} className="primary-button border-2 border-black">Перейти к следующему вопросу</button>
                 </div>

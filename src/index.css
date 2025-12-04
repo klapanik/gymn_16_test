@@ -6,5 +6,5 @@
 }
 
 .primary-button {
-    @apply bg-[#ffec96] text-black py-2 px-3 rounded-2xl font-medium cursor-pointer transition-colors duration-500 hover:bg-black hover:text-[#ffec96]
+    @apply bg-[#ffec96] text-black py-2 px-3 rounded-2xl md:font-medium cursor-pointer transition-colors duration-500 hover:bg-black hover:text-[#ffec96]
 }

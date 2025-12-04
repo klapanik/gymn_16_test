@@ -12,7 +12,7 @@ type Props = {
 
 export function CorrelationAnswers({ answers, dilemmas, showHandler, type, cols = '4' }: Props) {
     return (
-        <section className={`${type === 'correlativeTop' ? cols === '4' ? 'grid grid-cols-4 ' : 'grid grid-cols-3 ' : 'flex flex-col'} gap-5 mb-10`}>
+        <section className={`${type === 'correlativeTop' ? cols === '4' ? 'grid lg:grid-cols-4 ' : 'grid lg:grid-cols-3 ' : 'flex flex-col'} gap-5 mb-10`}>
             {dilemmas.map(dilemma => <Dilemma dilemma={dilemma} answers={answers} showHandler={showHandler} type={type} />)}
         </section>
     )

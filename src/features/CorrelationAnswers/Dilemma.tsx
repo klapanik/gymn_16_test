@@ -19,13 +19,13 @@ export function Dilemma({ dilemma, answers, showHandler, type }: Props) {
         <div
             ref={setNodeRef}
             key={dilemma.id}
-            className={`bg-white text-white p-2 rounded-2xl text-center flex ${type === 'correlativeTop' ? 'flex-col' : ''} gap-6 shadow-2xl`}>
+            className={`bg-white text-white p-2 rounded-2xl text-center flex flex-col ${type === 'correlativeTop' ? '' : 'sm:flex-row'} gap-6 shadow-2xl`}>
 
-            <div className={`${type === 'correlativeSide' ? 'w-[50%] py-2' : 'pt-5'}`}>
+            <div className={`${type === 'correlativeSide' ? 'sm:w-[50%] py-2' : 'pt-5'} `}>
                 {dilemma.img ? <img src={dilemma.img} alt={dilemma.dilemma} className="h-72 mx-auto" /> : <p className="text-black">{dilemma.dilemma}</p>}
             </div>
 
-            <div className={`py-3 px-2 ${type === 'correlativeSide' ? 'w-[40%]' : ''}`}>
+            <div className={`py-3 px-2 ${type === 'correlativeSide' ? 'sm:w-[40%]' : ''}`}>
                 {answers.map(answer => answer.dilemmaId == dilemma.id ? <Answer answer={answer} showHandler={showHandler} /> : '')}
             </div>
         </div>
